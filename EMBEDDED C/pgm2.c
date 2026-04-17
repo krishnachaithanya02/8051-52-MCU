@@ -1,18 +1,16 @@
 #include <reg52.h>
 
-void delay() {
-    unsigned int i, j;
-    for(i = 0; i < 200; i++)
-        for(j = 0; j < 100; j++);
-}
+sbit LED = P1^0;
+sbit SW = P2^0;
 
-void main() {
-    while(1) {
-        
-        P1 = 0x55;   // 01010101 ? Even LEDs ON
-        delay();
-        
-        P1 = 0xAA;   // 10101010 ? Odd LEDs ON
-        delay();
-    }
+void main() 
+{
+	while(1) {
+	if (SW==0) {
+		LED = 0;
+	}
+	else {
+		LED = 1;
+	}
+}
 }
