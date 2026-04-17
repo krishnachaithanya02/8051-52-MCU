@@ -1,0 +1,19 @@
+#include <reg52.h>
+
+sbit LED = P1^0;   // Define LED at Port1 Pin0
+
+void delay() {
+    unsigned int i, j;
+    for(i = 0; i < 200; i++)
+        for(j = 0; j < 200; j++);
+}
+
+void main() {
+    while(1) {
+        LED = 0;   // LED ON (active LOW)
+        delay();
+        
+        LED = 1;   // LED OFF
+        delay();
+    }
+}
